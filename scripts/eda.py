@@ -1,16 +1,16 @@
 """
-02_eda.py
+eda.py
 ----------
 Exploratory Data Analysis for the wholesale electricity price dataset.
 Generates three exploratory plots and prints EDA findings.
 
-Prerequisite: run 01_load_and_clean.py first to create
+Prerequisite: run load_and_clean.py first to create
               data/wholesale_prices_clean.csv
 
 Outputs (saved to output/):
-    fig1_avg_price_trend.png    -- overall monthly average price trend
-    fig2_hub_avg_comparison.png -- average price per hub (bar chart)
-    fig3_seasonal_boxplot.png   -- month-of-year price distribution
+    avg_price_trend.png              -- overall monthly average price trend
+    hub_avg_comparison.png           -- average price per hub (bar chart)
+    seasonal_price_distribution.png  -- month-of-year price distribution
 """
 
 import os
@@ -65,7 +65,7 @@ ax1.set_ylabel("Average Price (USD/MWh)")
 ax1.set_title("Overall Monthly Average Wholesale Electricity Price Trend")
 ax1.grid(axis="y", linestyle="--", alpha=0.4)
 fig1.tight_layout()
-out1 = os.path.join(OUTPUT_DIR, "fig1_avg_price_trend.png")
+out1 = os.path.join(OUTPUT_DIR, "avg_price_trend.png")
 fig1.savefig(out1, dpi=150, bbox_inches="tight")
 plt.close(fig1)
 print(f"\nSaved -> {out1}")
@@ -79,7 +79,7 @@ ax2.set_title("Average Wholesale Electricity Price by Hub")
 ax2.tick_params(axis="x", rotation=45)
 ax2.grid(axis="y", linestyle="--", alpha=0.4)
 fig2.tight_layout()
-out2 = os.path.join(OUTPUT_DIR, "fig2_hub_avg_comparison.png")
+out2 = os.path.join(OUTPUT_DIR, "hub_avg_comparison.png")
 fig2.savefig(out2, dpi=150, bbox_inches="tight")
 plt.close(fig2)
 print(f"Saved -> {out2}")
@@ -107,7 +107,7 @@ ax3.set_ylabel("Price (USD/MWh)")
 ax3.set_title("Seasonal Price Distribution by Month - All Hubs Combined")
 ax3.grid(axis="y", linestyle="--", alpha=0.4)
 fig3.tight_layout()
-out3 = os.path.join(OUTPUT_DIR, "fig3_seasonal_boxplot.png")
+out3 = os.path.join(OUTPUT_DIR, "seasonal_price_distribution.png")
 fig3.savefig(out3, dpi=150, bbox_inches="tight")
 plt.close(fig3)
 print(f"Saved -> {out3}")
